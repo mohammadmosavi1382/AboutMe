@@ -1,102 +1,48 @@
+// src/components/SectionTwo.tsx
+const skills = [
+  { name: "HTML", level: 90, color: "bg-blue-500" },
+  { name: "CSS", level: 85, color: "bg-purple-500" },
+  { name: "Tailwind", level: 70, color: "bg-orange-500" },
+  { name: "Responsive Design", level: 70, color: "bg-purple-600" },
+  { name: "API / Fetch", level: 75, color: "bg-fuchsia-500" },
+  { name: "Git", level: 60, color: "bg-gray-500" },
+  { name: "Clean Code", level: 65, color: "bg-red-500" },
+  { name: "React Hooks", level: 70, color: "bg-orange-400" },
+  { name: "GitHub", level: 60, color: "bg-blue-800" },
+];
 
+const SectionTwo = () => {
+  return (
+    <section id="skills" className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-sm border border-gray-100/80 p-6 md:p-8 transition-all duration-300">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">مهارت‌های من</h2>
+        <p className="text-gray-500 text-sm mt-1">تکنولوژی‌ها و ابزارهایی که در آن‌ها تخصص دارم</p>
+      </div>
 
-function SectionTwo() {
-return(
-    <div className="bg-white w-fuul pt-3 rounded-2xl h-183  ">
-      
-        <h1 className="font-extrabold pt-2 text-black">
-        مهارت‌های من
-        </h1>
-        <h5 className="text-gray-600 font-light text-xl pt-6 pb-6">
-        :تکنولوژی‌ها و ابزارهایی که در آن‌ها تخصص دارم
-        </h5>
-        <div dir="rtl" className="grid grid-cols-6 gap-4 pt-7 max-w-6xl flex  mx-auto">
-            <div className="bg-white p-2 w-45 h-30 rounded-xl shadow-sm border  flex-row-reverse border-gray-50  hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className=" text-sm  text-black font-medium">HTML</h3>
-          <p className="text-sm text-gray-500 mb-3">Web</p>
-          <div dir="rtl" className=" w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-blue-500 rounded-full w-[90%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۹۰%</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skills.map((skill) => (
+          <div
+            key={skill.name}
+            className="bg-white/50 rounded-xl p-4 border border-gray-100/80 hover:border-gray-200 hover:shadow-md transition-all duration-300 group"
+          >
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-semibold text-gray-800">{skill.name}</h3>
+              <span className="text-sm font-medium text-gray-500">{skill.level}%</span>
             </div>
-
-            <div className="bg-white p-3  w-45 h-30 rounded-xl shadow-sm border border-gray-50 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">Css</h3>
-          <p className="text-sm text-gray-500 mb-3">Web</p>
-          <div dir="rtl" className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-purple-600 rounded-full w-[85%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۸۵%</p>
+            <div className="w-full h-2 bg-gray-200/80 rounded-full overflow-hidden">
+              <div
+                className={`h-full ${skill.color} rounded-full transition-all duration-1000 group-hover:scale-x-100`}
+                style={{ width: `${skill.level}%` }}
+              />
             </div>
-
-            <div className="bg-white p-3  w-45 h-30 rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">Tailwind</h3>
-          <p className="text-sm text-gray-500 mb-3">Web</p>
-          <div dir="rtl" className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-orange-500 rounded-full w-[70%]"></div>
+            <p className="text-xs text-gray-400 mt-1.5">
+              {skill.level >= 80 ? "پیشرفته" : skill.level >= 60 ? "متوسط" : "مبتدی"}
+            </p>
           </div>
-          <p className="text-xs text-gray-500 mt-2">۷۰%</p>
-            </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
-  
-            <div className="bg-white p-3  w-45 h-30 rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">Responsive Design</h3>
-          <p className="text-sm text-gray-500 mb-3">UI</p>
-          <div dir="rtl"  className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-purple-600  rounded-full w-[70%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۷۰%</p>
-            </div>
-
-            <div className="bg-white p-3  w-45 h-30 rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">API / Fetch</h3>
-          <p className="text-sm text-gray-500 mb-3">Web</p>
-          <div className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div dir="rtl"  className="h-1.5 bg-fuchsia-500 rounded-full w-[75%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۷۵%</p>
-            </div>
-
-            <div className="bg-white p-3  w-45 h-30 rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">Git</h3>
-          <p className="text-sm text-gray-500 mb-3">Version Control</p>
-          <div dir="rtl" className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-gray-500 rounded-full w-[60%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۶۰%</p>
-            </div>
-
-            <div className="bg-white pt-3 p-2  flex-row-reverse rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium ">Clean Code</h3>
-          <p className="text-sm text-gray-500 mb-3">Web</p>
-          <div dir="rtl" className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-red-600 rounded-full w-[65%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۶۵%</p>
-            </div>
-
-            <div className="bg-white p-3  w-45 h-30  rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">React Hooks</h3>
-          <p className="text-sm text-gray-500 mb-3">React</p>
-          <div dir="rtl"  className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-orange-400 rounded-full w-[70%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">۷۰%</p>
-            </div>
-
-       
-
-            <div className="bg-white p-3 pb-3  w-45 h-30 rounded-xl shadow-sm border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition">
-            <h3 className="text-sm  text-black font-medium">GitHub</h3>
-          <p className="text-sm text-gray-500 mb-3">DI</p>
-          <div dir="rtl" className="w-full bg-gray-200  rounded-full overflow-hidden">
-            <div className="h-1.5 bg-blue-800 rounded-full w-[60%]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">60%</p>
-            </div>
-
-            
-        </div>
-    </div>
-)
-}export default SectionTwo
+export default SectionTwo;
